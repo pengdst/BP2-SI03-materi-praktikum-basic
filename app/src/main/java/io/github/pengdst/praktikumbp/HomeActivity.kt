@@ -10,6 +10,7 @@ class HomeActivity : AppCompatActivity() {
 
     lateinit var buttonClose: Button
     lateinit var buttonImplicit: Button
+    lateinit var buttonOpenContainer: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,6 +18,7 @@ class HomeActivity : AppCompatActivity() {
 
         buttonClose = findViewById(R.id.btn_close)
         buttonImplicit = findViewById(R.id.btn_implicit)
+        buttonOpenContainer = findViewById(R.id.btn_container)
 
         buttonImplicit.setOnClickListener {
             val intentOpenBrowser = Intent(Intent.ACTION_VIEW, Uri.parse("http://youtube.com"))
@@ -24,6 +26,10 @@ class HomeActivity : AppCompatActivity() {
         }
         buttonClose.setOnClickListener {
             finish()
+        }
+        buttonOpenContainer.setOnClickListener {
+            val intentContainer = Intent(this, ContainerActivity::class.java)
+            startActivity(intentContainer)
         }
     }
 }
